@@ -3,6 +3,7 @@ module Api
     class PatternsController < ApplicationController
       ### GET    /api/v1/patterns(.:format)          api/v1/patterns#index
       def index
+        binding.pry
         render json: Pattern.all.order(:id)
       end
 

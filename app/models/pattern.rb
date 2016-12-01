@@ -1,4 +1,4 @@
 class Pattern < ApplicationRecord
-  has_many :rows
-  has_many :loops, through: :rows
+  has_many :stitches
+  has_many :loops, through: :stitches
 end
