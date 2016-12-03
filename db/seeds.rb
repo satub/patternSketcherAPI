@@ -9,8 +9,20 @@ oikein = Loop.create(name: 'knit')
 nurin = Loop.create(name: 'purl')
 
 pattern1 = Pattern.create(name: 'pearl knit', width_loops: 2, height_rows: 2, repeat_x: true, repeat_y: true)
+pattern2 = Pattern.create(name: 'rib', width_loops: 4, height_rows: 2, repeat_x: true, repeat_y: true)
 
-row1_1 = Stitch.create(row_number: 1, loop_number: 1, side: 0, pattern_id: pattern1.id, loop_id: oikein.id)
-row1_2 = Stitch.create(row_number: 1, loop_number: 2, side: 0, pattern_id: pattern1.id, loop_id: nurin.id)
-row2_1 = Stitch.create(row_number: 2, loop_number: 1, side: 1, pattern_id: pattern1.id, loop_id: nurin.id)
-row2_2 = Stitch.create(row_number: 2, loop_number: 2, side: 1, pattern_id: pattern1.id, loop_id: oikein.id)
+# Pattern 1
+Stitch.create(row_number: 0, loop_number: 0, side: 0, pattern_id: pattern1.id, loop_id: oikein.id)
+Stitch.create(row_number: 0, loop_number: 1, side: 0, pattern_id: pattern1.id, loop_id: nurin.id)
+Stitch.create(row_number: 1, loop_number: 0, side: 0, pattern_id: pattern1.id, loop_id: nurin.id)
+Stitch.create(row_number: 1, loop_number: 1, side: 0, pattern_id: pattern1.id, loop_id: oikein.id)
+
+# Pattern 2
+Stitch.create(row_number: 0, loop_number: 0, side: 0, pattern_id: pattern2.id, loop_id: nurin.id)
+Stitch.create(row_number: 0, loop_number: 1, side: 0, pattern_id: pattern2.id, loop_id: nurin.id)
+Stitch.create(row_number: 0, loop_number: 2, side: 0, pattern_id: pattern2.id, loop_id: oikein.id)
+Stitch.create(row_number: 0, loop_number: 3, side: 0, pattern_id: pattern2.id, loop_id: oikein.id)
+Stitch.create(row_number: 1, loop_number: 0, side: 0, pattern_id: pattern2.id, loop_id: nurin.id)
+Stitch.create(row_number: 1, loop_number: 1, side: 0, pattern_id: pattern2.id, loop_id: nurin.id)
+Stitch.create(row_number: 1, loop_number: 2, side: 0, pattern_id: pattern2.id, loop_id: oikein.id)
+Stitch.create(row_number: 1, loop_number: 3, side: 0, pattern_id: pattern2.id, loop_id: oikein.id)
