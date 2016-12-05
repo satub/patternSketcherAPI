@@ -17,8 +17,8 @@ module Api
 
       ###  POST   /api/v1/patterns(.:format)          api/v1/patterns#create
       def create
-        binding.pry
-        @pattern = Pattern.create(pattern_params)
+        @pattern = Pattern.create(name: "temporary name")
+        @pattern.update(pattern_params)
         render json: @pattern
       end
 
