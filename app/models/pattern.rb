@@ -1,5 +1,5 @@
 class Pattern < ApplicationRecord
-  has_many :stitches, dependent: :destroy
+  has_many :stitches
   has_many :loops, through: :stitches
 
   accepts_nested_attributes_for :stitches
@@ -14,5 +14,8 @@ class Pattern < ApplicationRecord
         @new_stitch = Stitch.create(stitch)
       end
     end
+    ##destroy useless stitches
+    Stitch.where(pattern_id: self.id).where("loop_number >= ?", self.width_loops).delete_all
+    Stitch.where(pattern_id: self.id).where("row_number >= ?", self.height_rows).delete_all
   end
 end
