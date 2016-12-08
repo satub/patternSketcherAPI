@@ -1,6 +1,9 @@
 module Api
   module V1
     class PatternsController < ApplicationController
+
+      before_action :authenticate, except: [:index, :show]
+
       ### GET    /api/v1/patterns(.:format)          api/v1/patterns#index
       def index
         render json: Pattern.all.order(:id)

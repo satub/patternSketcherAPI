@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 
+  skip_before_action :authenticate
 
   def create
     user = User.find_by(user_name: auth_params[:user_name])
