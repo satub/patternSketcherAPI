@@ -1,5 +1,5 @@
 class Pattern < ApplicationRecord
-  has_many :stitches
+  has_many :stitches, dependent: :destroy
   has_many :loops, through: :stitches
 
   accepts_nested_attributes_for :stitches
