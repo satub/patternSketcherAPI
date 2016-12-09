@@ -3,14 +3,15 @@ class UsersController < ApplicationController
   skip_before_action :authenticate
 
   def create
-    binding.pry
+    # binding.pry
     @user = User.create(user_params)
 
     if @user.errors.empty?
+      render json: {user: {user_name: @user.user_name, user_id: @user.id}, msg: 'signing up successful'}
       #redirect to auth for token
     else
       ##hash this sucker and shove it back to frontEnd
-      @user.errors.full_messages[0]
+      render json: {err: @user.errors.full_messages[0]}, status: 422
     end
   end
 
